@@ -30,6 +30,21 @@ html, body {
   font-family: var(--font-hedvig), Georgia, serif;
 }
 
+/* Accent text - gradient */
+.accent-text {
+  font-style: normal;
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Headings style */
+h1, h2, h3 {
+  font-family: var(--font-rethink), system-ui, sans-serif;
+  font-weight: 700;
+}
+
 /* Градиенты для текста */
 .gradient-text {
   background: linear-gradient(90deg, #00d4ff, #7b2cbf);
