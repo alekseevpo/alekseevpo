@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: #d4d0c8;
+  --foreground: #1a1a2e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-rethink);
+  --font-serif: var(--font-hedvig);
+}
+
+html, body {
+  background: url('/paper-texture.png') repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: var(--font-rethink), system-ui, sans-serif;
+}
+
+/* Serif font for headings */
+.font-serif {
+  font-family: var(--font-hedvig), Georgia, serif;
+}
+
+/* Градиенты для текста */
+.gradient-text {
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Прогресс-бар */
+.scroll-progress {
+  --progress: 0%;
+}
+
+.scroll-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress);
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  border-radius: 2px;
+  transition: width 0.1s ease;
+}
+
+/* Анимации */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s ease-in-out infinite;
+}
