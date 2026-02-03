@@ -92,7 +92,7 @@ export default async function Home({ params }: PageProps) {
                   <ul className="space-y-2 text-[#2f2f3d] text-sm md:text-base leading-relaxed">
                     {category.items.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 mt-2" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#1a1a2e] flex-shrink-0 mt-2" />
                         <span>{item}</span>
                       </li>
                     ))}
