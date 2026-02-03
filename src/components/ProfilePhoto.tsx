@@ -22,7 +22,7 @@ export default function ProfilePhoto() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 z-30 pointer-events-none transition-transform duration-100"
+      className="fixed bottom-0 left-0 z-30 pointer-events-none transition-transform duration-100 hidden md:block"
       style={{ transform: `translateX(${offset}px)` }}
     >
       <Image

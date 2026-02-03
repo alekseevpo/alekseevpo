@@ -6,9 +6,9 @@ interface SectionProps {
 export default function Section({ children, className = '' }: SectionProps) {
   return (
     <section
-      className={`w-screen h-screen flex-shrink-0 flex items-center justify-center p-16 ${className}`}
+      className={`w-screen h-screen flex-shrink-0 flex items-center justify-center px-6 py-16 md:p-16 ${className}`}
     >
-      <div className="max-w-4xl text-center">
+      <div className="max-w-4xl text-center w-full">
         {children}
       </div>
     </section>

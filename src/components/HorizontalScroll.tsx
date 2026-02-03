@@ -11,8 +11,26 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const blogRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const updateIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    updateIsMobile();
+    window.addEventListener('resize', updateIsMobile);
+    return () => window.removeEventListener('resize', updateIsMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.height = '';
+      if (containerRef.current) {
+        containerRef.current.style.transform = '';
+      }
+      return;
+    }
+
     const content = contentRef.current;
     const blog = blogRef.current;
     if (!content) return;
@@ -94,34 +112,42 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
       window.removeEventListener('resize', handleResize);
       document.body.style.height = '';
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
-      <div
-        ref={containerRef}
-        className="fixed top-0 left-0 h-screen will-change-transform"
-      >
-        <div ref={contentRef} className="flex h-screen gap-0">
-          {/* Все секции кроме последней (блога) */}
-          {Array.isArray(children) ? children.slice(0, -1) : children}
-
-          {/* Секция блога с вертикальным скроллом */}
-          <div
-            ref={blogRef}
-            className="w-screen h-screen flex-shrink-0 overflow-hidden"
-            style={{ minWidth: '100vw' }}
-          >
-            {Array.isArray(children) ? children[children.length - 1] : null}
-          </div>
+      {isMobile ? (
+        <div ref={contentRef} className="flex flex-col min-h-screen">
+          {children}
         </div>
-      </div>
+      ) : (
+        <>
+          <div
+            ref={containerRef}
+            className="fixed top-0 left-0 h-screen will-change-transform"
+          >
+            <div ref={contentRef} className="flex h-screen gap-0">
+              {/* Все секции кроме последней (блога) */}
+              {Array.isArray(children) ? children.slice(0, -1) : children}
 
-      {/* Progress bar */}
-      <div
-        className="scroll-progress fixed bottom-8 left-1/2 -translate-x-1/2 w-48 h-1 bg-[#1a1a2e]/20 rounded-full overflow-hidden"
-        style={{ '--progress': `${progress}%` } as React.CSSProperties}
-      />
+              {/* Секция блога с вертикальным скроллом */}
+              <div
+                ref={blogRef}
+                className="w-screen h-screen flex-shrink-0 overflow-hidden"
+                style={{ minWidth: '100vw' }}
+              >
+                {Array.isArray(children) ? children[children.length - 1] : null}
+              </div>
+            </div>
+          </div>
+
+          {/* Progress bar */}
+          <div
+            className="scroll-progress fixed bottom-8 left-1/2 -translate-x-1/2 w-48 h-1 bg-[#1a1a2e]/20 rounded-full overflow-hidden"
+            style={{ '--progress': `${progress}%` } as React.CSSProperties}
+          />
+        </>
+      )}
     </>
   );
 }

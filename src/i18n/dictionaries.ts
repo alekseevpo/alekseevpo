@@ -126,7 +126,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Backend Development",
           items: [
-            "Custom CMS",
+            "Django / RestAPI / FastAPI",
             "Database architecture",
             "API integration",
             "Security implementation",
@@ -254,7 +254,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Desarrollo backend",
           items: [
-            "CMS a medida",
+            "Django / RestAPI / FastAPI",
             "Arquitectura de base de datos",
             "Integración de APIs",
             "Implementación de seguridad",
@@ -382,7 +382,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Backend разработка",
           items: [
-            "Кастомная CMS",
+            "Django / RestAPI / FastAPI",
             "Архитектура баз данных",
             "Интеграция API",
             "Реализация безопасности",

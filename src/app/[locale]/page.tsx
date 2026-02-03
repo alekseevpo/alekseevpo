@@ -40,7 +40,7 @@ export default async function Home({ params }: PageProps) {
 
         {/* About Section */}
         <Section>
-          <div className="max-w-3xl text-left">
+          <div className="max-w-3xl text-left mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
               <span className="accent-text">{dict.about.title}</span>
             </h2>
@@ -73,7 +73,7 @@ export default async function Home({ params }: PageProps) {
         </Section>
 
         {/* Services Section */}
-        <Section className="items-start justify-center pt-28 pb-12">
+        <Section className="items-start justify-center pt-24 md:pt-28 pb-12">
           <div className="max-w-6xl text-center w-full">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-[#1a1a2e]">{dict.services.titlePrefix} </span>
@@ -83,7 +83,7 @@ export default async function Home({ params }: PageProps) {
               {dict.services.subtitle}
             </p>
 
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 max-h-[calc(100vh-320px)] overflow-y-auto pr-2">
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4 max-h-[calc(100vh-320px)] overflow-y-auto pr-2">
               {dict.services.categories.map((category) => (
                 <div key={category.title} className="text-left">
                   <h3 className="text-lg font-semibold mb-3 text-[#1a1a2e]">

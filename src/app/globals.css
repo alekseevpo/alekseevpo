@@ -70,6 +70,12 @@ h1, h2, h3 {
   transition: width 0.1s ease;
 }
 
+@media (max-width: 767px) {
+  .scroll-progress {
+    display: none;
+  }
+}
+
 /* Анимации */
 @keyframes pulse {
   0%, 100% { opacity: 0.5; }

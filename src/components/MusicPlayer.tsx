@@ -117,7 +117,7 @@ export default function MusicPlayer() {
       {/* Toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-1/2 -translate-y-1/2 left-6 z-50 w-12 h-12 rounded-full bg-orange-500
+        className={`fixed bottom-6 left-4 md:top-1/2 md:-translate-y-1/2 md:left-6 z-50 w-12 h-12 rounded-full bg-orange-500
                    flex items-center justify-center transition-all duration-300
                    hover:bg-orange-600 hover:scale-110 shadow-lg shadow-orange-500/30
                    animate-music-pulse`}
@@ -133,8 +133,8 @@ export default function MusicPlayer() {
 
       {/* Player panel */}
       <div
-        className={`fixed top-1/2 -translate-y-1/2 left-20 z-40 bg-white/50 backdrop-blur-md border border-[#1a1a2e]/10
-                   rounded-2xl p-4 w-72 transition-all duration-300 shadow-xl
+        className={`fixed bottom-20 left-4 md:top-1/2 md:-translate-y-1/2 md:left-20 z-40 bg-white/50 backdrop-blur-md border border-[#1a1a2e]/10
+                   rounded-2xl p-4 w-[min(90vw,18rem)] transition-all duration-300 shadow-xl
                    ${isOpen ? 'translate-x-0 opacity-100' : '-translate-x-96 opacity-0'}`}
       >
         {/* Track info */}
