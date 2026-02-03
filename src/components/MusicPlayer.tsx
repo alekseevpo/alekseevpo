@@ -9,6 +9,7 @@ const playlist = [
 export default function MusicPlayer() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isUserPaused, setIsUserPaused] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -53,7 +54,38 @@ export default function MusicPlayer() {
     }
   }, [isPlaying, currentTrack]);
 
-  const togglePlay = () => setIsPlaying(!isPlaying);
+  useEffect(() => {
+    const tryPlay = () => {
+      if (!audioRef.current) return;
+      if (isUserPaused) return;
+      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => undefined);
+    };
+
+    const events: Array<keyof WindowEventMap> = ['click', 'keydown', 'scroll', 'touchstart'];
+    events.forEach((event) => window.addEventListener(event, tryPlay, { passive: true }));
+    tryPlay();
+
+    return () => {
+      events.forEach((event) => window.removeEventListener(event, tryPlay));
+    };
+  }, [isUserPaused]);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (!audioRef.current) return;
+      if (document.visibilityState === 'visible' && !isUserPaused) {
+        setIsPlaying(true);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, [isUserPaused]);
+
+  const togglePlay = () => {
+    setIsUserPaused(isPlaying);
+    setIsPlaying(!isPlaying);
+  };
 
   const prevTrack = () => {
     setCurrentTrack(currentTrack > 0 ? currentTrack - 1 : playlist.length - 1);
@@ -85,9 +117,10 @@ export default function MusicPlayer() {
       {/* Toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-1/2 -translate-y-1/2 left-6 z-50 w-12 h-12 rounded-full bg-purple-500
+        className={`fixed top-1/2 -translate-y-1/2 left-6 z-50 w-12 h-12 rounded-full bg-orange-500
                    flex items-center justify-center transition-all duration-300
-                   hover:bg-purple-600 hover:scale-110 shadow-lg shadow-purple-500/30`}
+                   hover:bg-orange-600 hover:scale-110 shadow-lg shadow-orange-500/30
+                   animate-music-pulse`}
       >
         <svg
           className="w-5 h-5 text-white"

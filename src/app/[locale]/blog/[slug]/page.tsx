@@ -179,7 +179,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       <article className="max-w-3xl mx-auto px-6 py-24">
         <Link
-          href={`/${locale}`}
+          href={`/${locale}/blog`}
           className="text-[#0891b2] hover:underline mb-8 inline-block"
         >
           ← {dict.blog.title}
@@ -201,11 +201,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         <div className="mt-16 pt-8 border-t border-[#1a1a2e]/10">
           <Link
-            href={`/${locale}`}
+            href={`/${locale}/blog`}
             className="px-8 py-3 bg-[#7c3aed] text-white rounded-full
                        transition-all duration-300 hover:bg-[#6d28d9] inline-block"
           >
-            ← Back to home
+            ← {dict.blog.title}
           </Link>
         </div>
       </article>

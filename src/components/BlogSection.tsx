@@ -70,11 +70,10 @@ export default function BlogSection({ dict, locale }: BlogSectionProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="px-6 pt-16 pb-24 min-h-screen flex flex-col">
-      <div className="max-w-4xl mx-auto flex-1">
+    <div className="px-6 md:px-12 lg:px-20 pt-28 pb-24 min-h-screen flex flex-col">
+      <div className="w-full max-w-7xl mx-auto flex-1">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          <span className="text-[#1a1a2e]">My </span>
-          <span className="accent-text">Blog</span>
+          <span className="accent-text">{dict.blog.title}</span>
         </h2>
         <p className="text-lg md:text-xl text-[#5a5a6e] mb-12">
           {dict.blog.description}
@@ -107,19 +106,20 @@ export default function BlogSection({ dict, locale }: BlogSectionProps) {
 
       {/* Footer */}
       <footer className="mt-16 pt-8 border-t border-[#1a1a2e]/10">
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Logo / Name */}
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold text-[#1a1a2e]">Pavel Alekseev</h3>
               <p className="text-sm text-[#5a5a6e]">{dict.footer.location1}</p>
               <p className="text-sm text-[#5a5a6e]">{dict.footer.location2}</p>
+              <p className="text-sm text-[#5a5a6e]">WhatsApp: +34 624 682 795</p>
             </div>
 
             {/* Social Links */}
             <div className="flex gap-4">
               <a
-                href="https://t.me/"
+                href="https://t.me/ppmtrue"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/60 border border-[#1a1a2e]/10 flex items-center justify-center

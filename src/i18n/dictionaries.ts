@@ -1,8 +1,68 @@
-export const dictionaries = {
+export type Locale = "en" | "es" | "ru";
+
+export interface ServicesCategory {
+  title: string;
+  items: string[];
+}
+
+export interface Dictionary {
+  hero: {
+    greeting: string;
+    name: string;
+    scrollHint: string;
+  };
+  about: {
+    title: string;
+    intro: string;
+    education: string;
+    educationList: string[];
+    career: string;
+    passion: string;
+    closing: string;
+  };
+  projects: {
+    title: string;
+    project: string;
+    description: string;
+  };
+  services: {
+    titlePrefix: string;
+    titleAccent: string;
+    subtitle: string;
+    categories: ServicesCategory[];
+  };
+  contact: {
+    title: string;
+    telegram: string;
+    github: string;
+    email: string;
+  };
+  blog: {
+    title: string;
+    description: string;
+    readMore: string;
+    posts: string;
+    noPosts: string;
+  };
+  cookies: {
+    message: string;
+    accept: string;
+    reject: string;
+  };
+  footer: {
+    copyright: string;
+    madeWith: string;
+    author: string;
+    location1: string;
+    location2: string;
+  };
+}
+
+export const dictionaries: Record<Locale, Dictionary> = {
   en: {
     hero: {
       greeting: "Hi Everyone! I'm",
-      name: "Pavel Alekseev",
+      name: "Pavel",
       scrollHint: "Scroll down →",
     },
     about: {
@@ -22,6 +82,85 @@ export const dictionaries = {
       project: "Project",
       description: "Project description",
     },
+    services: {
+      titlePrefix: "My",
+      titleAccent: "Services",
+      subtitle: "How I can help your business",
+      categories: [
+        {
+          title: "Discovery & Strategy",
+          items: [
+            "Business goals analysis",
+            "Competitor research",
+            "User personas & journey mapping",
+            "Technical requirements",
+          ],
+        },
+        {
+          title: "UX Design",
+          items: [
+            "Information architecture",
+            "User flows & wireframes",
+            "Interactive prototypes",
+            "Usability testing",
+          ],
+        },
+        {
+          title: "UI Design",
+          items: [
+            "Visual concepts",
+            "Design systems",
+            "Responsive layouts",
+            "Animations & micro-interactions",
+          ],
+        },
+        {
+          title: "Frontend Development",
+          items: [
+            "HTML/CSS/JavaScript",
+            "React, Vue.js",
+            "Responsive & cross-browser",
+            "Performance optimization",
+          ],
+        },
+        {
+          title: "Backend Development",
+          items: [
+            "Custom CMS",
+            "Database architecture",
+            "API integration",
+            "Security implementation",
+          ],
+        },
+        {
+          title: "Branding & Identity",
+          items: [
+            "Logo design",
+            "Brand guidelines",
+            "Marketing collateral",
+            "Social media assets",
+          ],
+        },
+        {
+          title: "SEO & Marketing",
+          items: [
+            "On-page SEO",
+            "Analytics setup",
+            "Conversion optimization",
+            "Content strategy",
+          ],
+        },
+        {
+          title: "Launch & Support",
+          items: [
+            "Deployment & hosting",
+            "Quality assurance",
+            "Post-launch monitoring",
+            "Ongoing maintenance",
+          ],
+        },
+      ],
+    },
     contact: {
       title: "Contact",
       telegram: "Telegram",
@@ -35,6 +174,11 @@ export const dictionaries = {
       posts: "Posts",
       noPosts: "No posts yet",
     },
+    cookies: {
+      message: "We use cookies to improve your experience and analyze traffic.",
+      accept: "Accept",
+      reject: "Decline",
+    },
     footer: {
       copyright: "All rights reserved",
       madeWith: "Made with",
@@ -46,7 +190,7 @@ export const dictionaries = {
   es: {
     hero: {
       greeting: "¡Hola a todos! Soy",
-      name: "Pavel Alekseev",
+      name: "Pavel",
       scrollHint: "Desplázate hacia abajo →",
     },
     about: {
@@ -66,6 +210,85 @@ export const dictionaries = {
       project: "Proyecto",
       description: "Descripción del proyecto",
     },
+    services: {
+      titlePrefix: "Mis",
+      titleAccent: "Servicios",
+      subtitle: "Cómo puedo ayudar a tu negocio",
+      categories: [
+        {
+          title: "Descubrimiento y estrategia",
+          items: [
+            "Análisis de objetivos de negocio",
+            "Investigación de la competencia",
+            "Personas y mapa del viaje del usuario",
+            "Requisitos técnicos",
+          ],
+        },
+        {
+          title: "Diseño UX",
+          items: [
+            "Arquitectura de la información",
+            "Flujos de usuario y wireframes",
+            "Prototipos interactivos",
+            "Pruebas de usabilidad",
+          ],
+        },
+        {
+          title: "Diseño UI",
+          items: [
+            "Conceptos visuales",
+            "Sistemas de diseño",
+            "Diseños responsivos",
+            "Animaciones y micro-interacciones",
+          ],
+        },
+        {
+          title: "Desarrollo frontend",
+          items: [
+            "HTML/CSS/JavaScript",
+            "React, Vue.js",
+            "Responsive y multi-navegador",
+            "Optimización de rendimiento",
+          ],
+        },
+        {
+          title: "Desarrollo backend",
+          items: [
+            "CMS a medida",
+            "Arquitectura de base de datos",
+            "Integración de APIs",
+            "Implementación de seguridad",
+          ],
+        },
+        {
+          title: "Branding e identidad",
+          items: [
+            "Diseño de logotipo",
+            "Guías de marca",
+            "Materiales de marketing",
+            "Recursos para redes sociales",
+          ],
+        },
+        {
+          title: "SEO y marketing",
+          items: [
+            "SEO on-page",
+            "Configuración de analítica",
+            "Optimización de conversión",
+            "Estrategia de contenido",
+          ],
+        },
+        {
+          title: "Lanzamiento y soporte",
+          items: [
+            "Despliegue y hosting",
+            "Control de calidad",
+            "Monitoreo post-lanzamiento",
+            "Mantenimiento continuo",
+          ],
+        },
+      ],
+    },
     contact: {
       title: "Contacto",
       telegram: "Telegram",
@@ -79,6 +302,11 @@ export const dictionaries = {
       posts: "Publicaciones",
       noPosts: "Aún no hay publicaciones",
     },
+    cookies: {
+      message: "Usamos cookies para mejorar tu experiencia y analizar el tráfico.",
+      accept: "Aceptar",
+      reject: "Rechazar",
+    },
     footer: {
       copyright: "Todos los derechos reservados",
       madeWith: "Hecho con",
@@ -90,7 +318,7 @@ export const dictionaries = {
   ru: {
     hero: {
       greeting: "Всем привет! Я",
-      name: "Павел Алексеев",
+      name: "Павел",
       scrollHint: "Скролль вниз →",
     },
     about: {
@@ -110,6 +338,85 @@ export const dictionaries = {
       project: "Проект",
       description: "Описание проекта",
     },
+    services: {
+      titlePrefix: "Мои",
+      titleAccent: "Услуги",
+      subtitle: "Чем я могу быть полезен для бизнеса",
+      categories: [
+        {
+          title: "Discovery и стратегия",
+          items: [
+            "Анализ бизнес-целей",
+            "Исследование конкурентов",
+            "Персоны и карта пути пользователя",
+            "Технические требования",
+          ],
+        },
+        {
+          title: "UX дизайн",
+          items: [
+            "Информационная архитектура",
+            "Пользовательские флоу и вайрфреймы",
+            "Интерактивные прототипы",
+            "Usability-тестирование",
+          ],
+        },
+        {
+          title: "UI дизайн",
+          items: [
+            "Визуальные концепции",
+            "Дизайн-системы",
+            "Адаптивные макеты",
+            "Анимации и микро-взаимодействия",
+          ],
+        },
+        {
+          title: "Frontend разработка",
+          items: [
+            "HTML/CSS/JavaScript",
+            "React, Vue.js",
+            "Адаптивность и кросс-браузерность",
+            "Оптимизация производительности",
+          ],
+        },
+        {
+          title: "Backend разработка",
+          items: [
+            "Кастомная CMS",
+            "Архитектура баз данных",
+            "Интеграция API",
+            "Реализация безопасности",
+          ],
+        },
+        {
+          title: "Брендинг и идентика",
+          items: [
+            "Дизайн логотипа",
+            "Гайдлайны бренда",
+            "Маркетинговые материалы",
+            "Материалы для соцсетей",
+          ],
+        },
+        {
+          title: "SEO и маркетинг",
+          items: [
+            "On-page SEO",
+            "Настройка аналитики",
+            "Оптимизация конверсии",
+            "Контент-стратегия",
+          ],
+        },
+        {
+          title: "Запуск и поддержка",
+          items: [
+            "Деплой и хостинг",
+            "Контроль качества",
+            "Мониторинг после запуска",
+            "Регулярное сопровождение",
+          ],
+        },
+      ],
+    },
     contact: {
       title: "Связаться",
       telegram: "Telegram",
@@ -123,6 +430,11 @@ export const dictionaries = {
       posts: "Статьи",
       noPosts: "Пока нет статей",
     },
+    cookies: {
+      message: "Мы используем cookies для улучшения работы сайта и анализа трафика.",
+      accept: "Принять",
+      reject: "Отклонить",
+    },
     footer: {
       copyright: "Все права защищены",
       madeWith: "Сделано с",
@@ -131,10 +443,7 @@ export const dictionaries = {
       location2: "Мадрид, Испания",
     },
   },
-} as const;
-
-export type Locale = keyof typeof dictionaries;
-export type Dictionary = typeof dictionaries.en;
+};
 
 export const locales: Locale[] = ["en", "es", "ru"];
 export const defaultLocale: Locale = "en";

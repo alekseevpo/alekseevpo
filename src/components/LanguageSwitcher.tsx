@@ -14,8 +14,14 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: Loc
   const router = useRouter();
 
   const switchLocale = (newLocale: Locale) => {
-    const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
-    router.push(newPath);
+    const segments = pathname.split('/');
+    if (segments.length > 1) {
+      segments[1] = newLocale;
+    }
+    const newPath = segments.join('/') || `/${newLocale}`;
+    const scrollY = window.scrollY;
+    window.sessionStorage.setItem('scroll-restore', String(scrollY));
+    router.push(newPath, { scroll: false });
   };
 
   return (
